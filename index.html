@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="在MacOS系统上安装Weget : 如何在MacOS上安装wget">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>在MacOS系统上安装Weget</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/UrianHong/MacOS-Install-Wget">View on GitHub</a>
+
+          <h1 id="project_title">在MacOS系统上安装Weget</h1>
+          <h2 id="project_tagline">如何在MacOS上安装wget</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/UrianHong/MacOS-Install-Wget/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/UrianHong/MacOS-Install-Wget/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <p>下载一个Wget的源码包，<a href="http://www.gnu.org/software/wget/">http://www.gnu.org/software/wget/</a><br>
+打开终端解压<br>
+1、输入：<code>tar zxvf wget-1.9.1.tar.gz</code><br>
+2、cd 进入到解压的目录<br>
+3、输入：<code>./configure</code><br>
+4、输入：<code>make</code><br>
+5、输入：<code>sudo make install</code><br>
+安装过程中make会提示出错。<br>
+checking for compress in -lz... yes<br>
+checking for gpg_err_init in -lgpg-error... no<br>
+checking for gcry_control in -lgcrypt... no<br>
+checking for libgnutls... no<br>
+configure: error: --with-ssl was given, but GNUTLS is not available.<br>
+解决方法也很简单：<br>
+<code># tar zxvf wget-1.13.4.tar.gz</code><br>
+<code># cd wget-1.13.4</code><br>
+<code>wget-1.13.4 root# ./configure  --with-ssl=openssl</code><br>
+<code>wget-1.13.4 root# make</code><br>
+<code>wget-1.13.4 root# make install</code><br>
+注意，你如果不是使用root用户，那么在安装的这一步需要使用sudo授权。<br>
+当然有更简单的方法，那就是用MAC的软件管理包来安装咯！<br>
+mac下面的package manager，自动download、compile、install，并且会自动寻找依赖关系的包然后自动安装的。比较好的软件包管理器有：<br>
+homebrew （<a href="http://mxcl.github.com/homebrew/%EF%BC%89%E6%8E%A8%E8%8D%90%EF%BC%8C%E4%B8%93%E9%97%A8%E6%9D%A5%E6%9B%BF%E4%BB%A3MacPorts">http://mxcl.github.com/homebrew/）推荐，专门来替代MacPorts</a><br>
+MacPorts (<a href="http://www.macports.org/">http://www.macports.org/</a>)<br>
+刚刚试过，这两个软件包管理器，都是有 wget 的安装源的。这里是搜索结果：<br>
+<code>mac:~ juven$ brew search wget</code><br>
+<code>wget</code><br>
+<code>mac:~ juven$ port search wget</code><br>
+wget @1.13.4 (net, www)<br>
+internet file retriever<br>
+安装完毕 homebrew或者MacPorts后，直接<br>
+<code>brew install wget</code><br>
+或者<br>
+<code>port install wget</code><br></p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">在MacOS系统上安装Weget maintained by <a href="https://github.com/UrianHong">UrianHong</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
